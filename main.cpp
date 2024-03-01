@@ -9,6 +9,7 @@ for certain values and outputs a shape of their choice
 #include <iostream>
 #include <limits>
 #include <string>
+#include "shapes.h"
 
 using namespace std;
 
@@ -21,31 +22,36 @@ string stringCharacter = "0";
 
 // Asks the user to input a letter
 
-char enterCharacter(string inputLetter) {
+char enterCharacter(string inputLetter)
+{
   cout << "Enter a character: ";
   cin >> inputLetter;
   // While the input the user has put in has failed or is over one character,
   // try again
-  while ((cin.fail()) || (inputLetter.length() != 1)) {
+  while ((cin.fail()) || (inputLetter.length() != 1))
+  {
     cin.clear();
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    if (inputLetter.length() != 1) {
+    if (inputLetter.length() != 1)
+    {
       cout << "Invalid input. Please only enter one letter: ";
-    } else {
+    }
+    else
+    {
       cout << "Invalid input. Please enter a different letter: ";
     }
     cin >> inputLetter;
   }
-  cin.clear();
-  cin.ignore(numeric_limits<streamsize>::max(), '\n');
-  char outputLetter = inputLetter[1];
+  char outputLetter = inputLetter[0];
   return outputLetter;
 }
 
-int enterNumber(int inputNumber) {
+int enterNumber(int inputNumber)
+{
   cout << "End a number: ";
   cin >> inputNumber;
-  while (cin.fail() || inputNumber < 0) {
+  while (cin.fail() || inputNumber < 0)
+  {
     cin.clear();
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     cout << "Invalid input. Please enter a positive integer: ";
@@ -54,11 +60,13 @@ int enterNumber(int inputNumber) {
   return inputNumber;
 }
 
-int whatShape(int inputShape) {
+int whatShape(int inputShape)
+{
   cout << "What shape would you like to print? \n1. Square \n2. Hollow Square "
-          "\n3. Right Triangle\n4. Isosceles Triangle\nPlease enter a number: ";
+          "\n3. Right Angle Triangle\n4. Isosceles Triangle\nPlease enter a number: ";
   cin >> inputShape;
-  while (cin.fail() || inputShape < 1 || inputShape > 4) {
+  while (cin.fail() || inputShape < 1 || inputShape > 4)
+  {
     cin.clear();
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     cout << "Invalid input. Please enter a number between 1 and 4: ";
@@ -67,21 +75,31 @@ int whatShape(int inputShape) {
   return inputShape;
 }
 
-void printSquare(int userNumber, char userLetter) {
-  for (int i = 0; i < userNumber; i++) {
-    for (int j = 0; j < userNumber; j++) {
+void printSquare(int userNumber, char userLetter)
+{
+  for (int i = 0; i < userNumber; i++)
+  {
+    for (int j = 0; j < userNumber; j++)
+    {
       cout << userLetter;
     }
     cout << "\n";
   }
 }
 
-void printHollowSquare(int userNumber, char userLetter) {
-  for (int i = 0; i < userNumber; i++) {
-    for (int j = 0; j < userNumber; j++) {
-      if (i == 0 || i == userNumber - 1 || j == 0 || j == userNumber - 1) {
+void printHollowSquare(int userNumber, char userLetter)
+{
+  for (int i = 0; i < userNumber; i++)
+  {
+    for (int j = 0; j < userNumber; j++)
+    {
+      // Outputs the user's letter for the Top, Bottom, and the Sides of the box, if it is none of those, output nothing
+      if (j == 0 || j == userNumber - 1 || i == 0 || i == userNumber - 1)
+      {
         cout << userLetter;
-      } else {
+      }
+      else
+      {
         cout << " ";
       }
     }
@@ -89,14 +107,50 @@ void printHollowSquare(int userNumber, char userLetter) {
   }
 }
 
-int main() {
+// void printRightTriangle(int userNumber, char userLetter)
+// {
+//   for (int i = 0; i < userNumber; i++)
+//   {
+//     for (int j = 0; j <= i; j++)
+//     {
+//       cout << userLetter;
+//     }
+//     cout << "\n";
+//   }
+// }
+
+bool isEven(int userNumber) {
+  if (userNumber % 2 == 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+void printIsoscelesTriangle(int userNumber, char userLetter) {
+  for (int i = 0; i < userNumber; i++) {
+    
+  }
+}
+
+int main()
+{
   number = enterNumber(number);
   character = enterCharacter(stringCharacter);
   shape = whatShape(shape);
-  if (shape == 1) {
+  if (shape == 1)
+  {
     printSquare(number, character);
-  } else if (shape == 2) {
+  }
+  else if (shape == 2)
+  {
     printHollowSquare(number, character);
-  } else if (shape == 3) {
+  }
+  else if (shape == 3)
+  {
+    printRightTriangle(number, character);
+  } else if (shape == 4)
+  {
+
   }
 }
