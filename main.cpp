@@ -10,9 +10,11 @@ for certain values and outputs a shape of their choice
 #include <limits>
 #include <string>
 
-// These files are define the functions that will be used in the program, please see shapes.cpp and inputs.cpp for the code of the functions used in this program.
-#include "shapes.h"
+// These files are define the functions that will be used in the program, please
+// see shapes.cpp and inputs.cpp for the code of the functions used in this
+// program.
 #include "inputs.h"
+#include "shapes.h"
 
 using namespace std;
 
@@ -22,12 +24,12 @@ int shape = 0;
 char character = '0';
 bool playAgain = true;
 
-// This is the main function of the program. It calls the various other functions needed for the program to run.
-int main()
-{
-  // The code will continue to run until the user decides to stop playing the game.
-  while (playAgain)
-  {
+// This is the main function of the program. It calls the various other
+// functions needed for the program to run.
+int main() {
+  // The code will continue to run until the user decides to stop playing the
+  // game.
+  while (playAgain) {
     // Have the user enter the values for the shape they want to print.
     number = enterNumber();
     character = enterCharacter();
@@ -35,8 +37,7 @@ int main()
     cout << "\n";
 
     // Print the shape that the user has chosen.
-    if (shape == 1)
-    {
+    if (shape == 1) {
       printSquare(number, character);
     } else if (shape == 2) {
       printHollowSquare(number, character);
