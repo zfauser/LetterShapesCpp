@@ -1,5 +1,5 @@
-.ccls-cache
+.ccls-cache/*
 main
-build
-.vscode
+build/*
+.vscode/*
 .breakpoints
