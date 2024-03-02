@@ -1,8 +1,10 @@
 # List all source files
-SRCS := $(shell find . -name '*.cpp')
+SRCS := $(wildcard *.cpp)
+SRCS += $(wildcard */*.cpp)  # Include source files from subdirectories
 
 # List all header files
-HEADERS := $(shell find . -name '*.h')
+HEADERS := $(wildcard *.h)
+HEADERS += $(wildcard */*.h)  # Include header files from subdirectories
 
 # Compiler
 CXX := clang++
@@ -12,12 +14,8 @@ override CXXFLAGS += -g -Wmost -Werror
 
 # Target for the main executable
 main: $(SRCS) $(HEADERS)
-    $(CXX) $(CXXFLAGS) $(SRCS) -o $@
-
-# Target for the main-debug executable
-main-debug: $(SRCS) $(HEADERS)
-    $(CXX) $(CXXFLAGS) -U_FORTIFY_SOURCE -O0 $(SRCS) -o $@
+	$(CXX) $(CXXFLAGS) $(SRCS) -o $@
 
 # Clean up
 clean:
-    rm -f main main-debug
+	rm -f main
