@@ -7,9 +7,9 @@
 
 using namespace std;
 
-char enterCharacter(string inputLetter);
-int enterNumber(string inputNumber);
-int whatShape(int inputShape);
-bool askPlayAgain(bool playAgain);
+char enterCharacter();
+int enterNumber();
+int whatShape();
+bool askPlayAgain();
 
 #endif
