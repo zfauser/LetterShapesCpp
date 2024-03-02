@@ -3,3 +3,7 @@ main
 build/*
 .vscode/*
 .breakpoints
+.ccls-cache/@home@runner@LetterShapesCpp/main.cpp
+.ccls-cache/@home@runner@LetterShapesCpp/main.cpp.blob
+.gitignore
+.ccls-cache/@home@runner@LetterShapesCpp/shapes.h.blob
