@@ -6,10 +6,13 @@ implements the fundamentals of programming. This is a program that asks the user
 for certain values and outputs a shape of their choice
 */
 
+// TODO: Add comments to main.cpp, shapes.cpp, and inputs.cpp
+
 #include <iostream>
 #include <limits>
 #include <string>
 #include "shapes.h"
+#include "inputs.h"
 
 using namespace std;
 
@@ -19,95 +22,34 @@ int number = 0;
 int shape = 0;
 char character = '0';
 string stringCharacter = "0";
-
-// Asks the user to input a letter
-
-char enterCharacter(string inputLetter)
-{
-  cout << "Enter a character: ";
-  cin >> inputLetter;
-  // While the input the user has put in has failed or is over one character,
-  // try again
-  while ((cin.fail()) || (inputLetter.length() != 1))
-  {
-    cin.clear();
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    if (inputLetter.length() != 1)
-    {
-      cout << "Invalid input. Please only enter one letter: ";
-    }
-    else
-    {
-      cout << "Invalid input. Please enter a different letter: ";
-    }
-    cin >> inputLetter;
-  }
-  char outputLetter = inputLetter[0];
-  return outputLetter;
-}
-
-int enterNumber(int inputNumber)
-{
-  cout << "End a number: ";
-  cin >> inputNumber;
-  while (cin.fail() || inputNumber < 0)
-  {
-    cin.clear();
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    cout << "Invalid input. Please enter a positive integer: ";
-    cin >> inputNumber;
-  }
-  return inputNumber;
-}
-
-int whatShape(int inputShape)
-{
-  cout << "What shape would you like to print? \n1. Square \n2. Hollow Square "
-          "\n3. Right Angle Triangle\n4. Isosceles Triangle\nPlease enter a number: ";
-  cin >> inputShape;
-  while (cin.fail() || inputShape < 1 || inputShape > 4)
-  {
-    cin.clear();
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    cout << "Invalid input. Please enter a number between 1 and 4: ";
-    cin >> inputShape;
-  }
-  return inputShape;
-}
-
-
-bool isEven(int userNumber) {
-  if (userNumber % 2 == 0) {
-    return true;
-  } else {
-    return false;
-  }
-}
-
-void printIsoscelesTriangle(int userNumber, char userLetter) {
-  for (int i = 0; i < userNumber; i++) {
-    
-  }
-}
+string stringNumber = "0";
+bool playAgain = true;
 
 int main()
 {
-  number = enterNumber(number);
-  character = enterCharacter(stringCharacter);
-  shape = whatShape(shape);
-  if (shape == 1)
+  while (playAgain)
   {
-    printSquare(number, character);
-  }
-  else if (shape == 2)
-  {
-    printHollowSquare(number, character);
-  }
-  else if (shape == 3)
-  {
-    printRightTriangle(number, character);
-  } else if (shape == 4)
-  {
-
+    number = enterNumber(stringNumber);
+    character = enterCharacter(stringCharacter);
+    shape = whatShape(shape);
+    cout << "\n";
+    if (shape == 1)
+    {
+      printSquare(number, character);
+    }
+    else if (shape == 2)
+    {
+      printHollowSquare(number, character);
+    }
+    else if (shape == 3)
+    {
+      printRightTriangle(number, character);
+    }
+    else if (shape == 4)
+    {
+      printIsoscelesTriangle(number, character);
+    }
+    cout << "\n";
+    playAgain = askPlayAgain(playAgain);
   }
 }

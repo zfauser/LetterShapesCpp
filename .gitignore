@@ -3,7 +3,5 @@ main
 build/*
 .vscode/*
 .breakpoints
-.ccls-cache/@home@runner@LetterShapesCpp/main.cpp
-.ccls-cache/@home@runner@LetterShapesCpp/main.cpp.blob
-.ccls-cache/@home@runner@LetterShapesCpp/shapes.h.blob
 main.dSYM/
+run.sh
