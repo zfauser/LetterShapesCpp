@@ -1,3 +1,7 @@
+#include <string>
+
+using namespace std;
+
 // Foregrounds
 const string BLACK = "\033[30m";
 const string RED = "\033[31m";
@@ -37,4 +41,3 @@ const string BRIGHT_WHITE_BG = "\033[107m";
 const string BOLD = "\033[1m";
 const string UNDERLINE = "\033[4m";
 const string RESET = "\033[0m";
-

@@ -1,6 +1,9 @@
 // Name: Zach Fauser
 // Date: March 1st, 2024
-// Purpose: This file is used to declare the functions used in the shapes.cpp file so that the main file can use them.
+// Purpose: This file is used to declare the functions used in the shapes.cpp
+// file so that the main file can use them.
+
+#include <string>
 
 #ifndef SHAPES_H
 #define SHAPES_H

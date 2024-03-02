@@ -8,11 +8,11 @@ for certain values and outputs a shape of their choice
 
 // TODO: Add comments to main.cpp, shapes.cpp, and inputs.cpp
 
+#include "inputs.h"
+#include "shapes.h"
 #include <iostream>
 #include <limits>
 #include <string>
-#include "shapes.h"
-#include "inputs.h"
 
 using namespace std;
 
@@ -25,28 +25,19 @@ string stringCharacter = "0";
 string stringNumber = "0";
 bool playAgain = true;
 
-int main()
-{
-  while (playAgain)
-  {
+int main() {
+  while (playAgain) {
     number = enterNumber(stringNumber);
     character = enterCharacter(stringCharacter);
     shape = whatShape(shape);
     cout << "\n";
-    if (shape == 1)
-    {
+    if (shape == 1) {
       printSquare(number, character);
-    }
-    else if (shape == 2)
-    {
+    } else if (shape == 2) {
       printHollowSquare(number, character);
-    }
-    else if (shape == 3)
-    {
+    } else if (shape == 3) {
       printRightTriangle(number, character);
-    }
-    else if (shape == 4)
-    {
+    } else if (shape == 4) {
       printIsoscelesTriangle(number, character);
     }
     cout << "\n";
